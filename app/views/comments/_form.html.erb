@@ -1,0 +1,14 @@
+<%= form_for [post, comment] do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: "你想說什麼？",  class: "form-control", style: "width:100%;height:100px"  %>
+  </div>
+  <% if parent %>
+    <%= f.hidden_field :parent_id, :value => parent.id %>
+  <% end %>
+  <%= f.submit class: "btn btn-primary pull-right"%>
+  <br>
+  <br>
+  <% if comment.errors.any? %>
+    <%= comment.errors.full_messages.to_sentence %>
+  <% end %>
+<% end %> 

@@ -1,0 +1,15 @@
+<article>
+  <p>by <%= comment.user.email %>, <%= comment.created_at.strftime('%F') %>, <%= comment.created_at.strftime('%H:%M:%S') %></p>
+  <p><%= simple_format comment.content %></p>
+
+  <a href="#" class="comment-form-display">reply</a>
+  <div class="comment-form">
+    <%= render partial: 'comments/form', locals: {post: comment.post, comment: Comment.new, parent: comment} %>
+    <a href="#" class="comment-form-close">cancel</a>
+  </div>
+  <hr>
+
+  <div class="sub-content">
+    <%= render comment.comments %>
+  <div>
+</article>
