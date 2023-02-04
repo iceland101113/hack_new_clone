@@ -44,4 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_153756) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id"
+    t.boolean "upvote", default: false
+    t.string "voteable_type"
+    t.bigint "voteable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["voteable_type", "voteable_id"], name: "index_votes_on_voteable"
+  end
+
 end
