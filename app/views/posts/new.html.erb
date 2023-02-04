@@ -1,0 +1,36 @@
+<div class="container" style="height:500px;">
+  <div class="row">
+    <% if @post.errors.present? %>
+      <ul>
+        <% @post.errors.each do |error, message| %>
+          <li> <%= "#{error.capitalize}  #{message}" %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <br>
+    <div class="form container">
+
+      <%= form_for @post do |f| %>
+
+        <div class="form-group">
+          <%= f.label :title, "Title" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :link_url, "Link Url" %>
+          <%= f.text_field :link_url, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :content, "Content" %>
+          <%= f.text_area :content, class: "form-control" %>
+        </div>
+
+        <%= f.submit class: "btn btn-primary" %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
