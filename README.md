@@ -1,24 +1,37 @@
-# README
+# Origami Works Display Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+#### Getting Started
+* Version
+Ruby 3.0.3
+Rails 7.0.4
+PostgreSQL 14.6
+Yarn 1.22.19
+jQuery 3.6.3
+Bootstrap 5.2.3
+Redis 7.0.8
 
-* System dependencies
+* Set Up
+``` bash
+# clone project
+git clone https://github.com/iceland101113/origami-gallery.git
 
-* Configuration
+# Install dependencies
+安裝redis，有使用到siedkiq會需要用到redis
+brew install redis
 
-* Database creation
+安裝yarn，會需要用到uarn build js跟css
+brew install yarn
 
-* Database initialization
+bundle install
 
-* How to run the test suite
+# Create database schema
+rails db:create db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+# Create seed data
+rails db:seed
 
-* Deployment instructions
-
-* ...
+#Start server
+跑以下指令，並可至localhost:3000查看
+bin/dev
