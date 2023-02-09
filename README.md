@@ -29,7 +29,7 @@ Redis 7.0.8
 ```
 * Set Up 
 ``` bash
-belows are the setup steps in mac:
+belows are the setup steps on mac:
 
 # clone project
 git clone https://github.com/iceland101113/origami-gallery.git
