@@ -1,9 +1,22 @@
 # Mock Hack News Website
 
-主要功能如下
+## Intruduction
+複製一個 mini 的 Hacker News，製作簡易可用的推文系統 prototype：
+https://news.ycombinator.com/
 
+主要功能如以下連結說明：
+https://gist.github.com/chinghanho/a26bd9982e14fa9ec441cc100db7224d
 
-#### Getting Started
+關於權重計算的部分，設定貼文的P為每篇文章的投票數，留言則初始分數為2，G設定為1.5
+``` bash
+權重分數 = (P-1) / (T+2)^G
+
+P = 每篇文章的基礎分數
+T = 時間間距，單位為小時
+G = 重力係數，文章分數下降的速度
+```
+
+## Getting Started
 * Version
 ``` bash
 Ruby 3.0.3
