@@ -1,15 +1,21 @@
 <article>
-  <p>by <%= comment.user.email %>, <%= comment.created_at.strftime('%F') %>, <%= comment.created_at.strftime('%H:%M:%S') %></p>
   <p><%= simple_format comment.content %></p>
+  <p>by <%= comment.user.email %>, <%= comment.created_at.strftime('%F') %>, <%= comment.created_at.strftime('%H:%M:%S') %></p>
 
-  <a href="#" class="comment-form-display">reply</a>
-  <div class="comment-form">
-    <%= render partial: 'comments/form', locals: {post: comment.post, comment: Comment.new, parent: comment} %>
-    <a href="#" class="comment-form-close">cancel</a>
-  </div>
-  <hr>
+  <% if count < 8 %>
+    <div>
+      <span class="comment-form-display">reply</span>
+      <span class="comment-form-close">cancel</span>
+      <div class="comment-form">
+        <%= render partial: 'comments/form', locals: {post: comment.post, comment: Comment.new, parent: comment} %>
+      </div>
+    </div>
+    <hr>
 
-  <div class="sub-content">
-    <%= render comment.comments %>
-  <div>
+    <div class="sub-content">
+      <% comment.comments.order("score DESC").each do |comment| %>
+        <%= render partial: 'comments/comment', locals: {comment: comment, count: count+1} %>
+      <% end %>
+    <div>
+  <% end %>
 </article>

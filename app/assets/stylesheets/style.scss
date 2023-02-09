@@ -5,3 +5,24 @@
 .comment-form {
   display: none;
 }
+
+.comment-form-display {
+  text-decoration: underline;
+  color: blue;
+}
+
+.comment-form-close {
+  display: none;
+  text-decoration: underline;
+  color: blue;
+}
+
+.bi-pencil-fill {
+  font-size: 2rem; 
+  color: cornflowerblue;
+}
+
+.bi-trash-fill {
+  font-size: 2rem; 
+  color: cornflowerblue;
+}
