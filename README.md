@@ -58,9 +58,9 @@ rails db:seed
 # Start server(跑以下指令，並可至localhost:3000查看)
 bin/dev
 ```
-** Testing
+* Testing
 ``` bash
-# run rspec
+# run rspec(使用rspec針對model及score service進行測試)
 rspec
 ```
 
