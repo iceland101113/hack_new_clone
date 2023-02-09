@@ -40,11 +40,14 @@ brew install redis
 # Install yarn (會需要用到uarn build js跟css)
 brew install yarn
 
+# Start Redis
+redis-server
+
 # Install dependency gem
 bundle install
 
-# Start Redis
-redis-server
+# Install frontend package
+yarn install
 
 # Create database schema
 rails db:create db:migrate
