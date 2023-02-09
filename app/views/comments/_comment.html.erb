@@ -4,7 +4,9 @@
 
   <% if count < 8 %>
     <div>
-      <span class="comment-form-display">reply</span>
+      <% if user_signed_in? %>
+        <span class="comment-form-display">reply</span>
+      <% end %>
       <span class="comment-form-close">cancel</span>
       <div class="comment-form">
         <%= render partial: 'comments/form', locals: {post: comment.post, comment: Comment.new, parent: comment} %>
