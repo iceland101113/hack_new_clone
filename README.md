@@ -7,7 +7,7 @@ https://news.ycombinator.com/
 主要功能如以下連結說明：
 https://gist.github.com/chinghanho/a26bd9982e14fa9ec441cc100db7224d
 
-關於權重計算的部分，設定貼文的P為每篇文章的投票數，留言則初始分數為2，G設定為1.5
+關於權重計算的部分，設定貼文的`P`為每篇文章的投票數，留言則初始分數為2，`G`設定為1.5
 ``` bash
 權重分數 = (P-1) / (T+2)^G
 
@@ -27,19 +27,24 @@ jQuery 3.6.3
 Bootstrap 5.2.3
 Redis 7.0.8
 ```
-* Set Up
+* Set Up 
 ``` bash
+belows are the setup steps in mac:
+
 # clone project
 git clone https://github.com/iceland101113/origami-gallery.git
 
-# Install dependencies
-安裝redis，有使用到siedkiq會需要用到redis
+# Install redis (有使用到siedkiq會需要用到redis)
 brew install redis
 
-安裝yarn，會需要用到uarn build js跟css
+# Install yarn (會需要用到uarn build js跟css)
 brew install yarn
 
+# Install dependency gem
 bundle install
+
+# Start Redis
+redis-server
 
 # Create database schema
 rails db:create db:migrate
@@ -47,6 +52,5 @@ rails db:create db:migrate
 # Create seed data
 rails db:seed
 
-#Start server
-跑以下指令，並可至localhost:3000查看
+# Start server(跑以下指令，並可至localhost:3000查看)
 bin/dev
