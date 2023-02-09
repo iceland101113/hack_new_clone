@@ -5,12 +5,13 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
-    @comment.save!
 
     if @comment.save
       redirect_to post_path(@post.id)
-    # else
-    #   render :action => :new
+      flash[:notice] = "comment was successfully create"
+    else
+      flash.now[:alert] = "comment was failed to create"
+      render :action => :new, status: :unprocessable_entity
     end
   end
 

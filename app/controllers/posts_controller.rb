@@ -20,8 +20,8 @@ class PostsController < ApplicationController
       redirect_to root_path
       flash[:notice] = "post was successfully created"
     else
-      flash[:alert] = "post was failed to create"
-      render :action => :new
+      flash.now[:alert] = "post was failed to create"
+      render :action => :new, status: :unprocessable_entity
     end
   end
 
@@ -30,8 +30,8 @@ class PostsController < ApplicationController
       redirect_to root_path
       flash[:notice] = "post was successfully updated"
     else
-      flash[:alert] = "post was failed to update"
-      render :action => :edit
+      flash.now[:alert] = "post was failed to update"
+      render :action => :edit, status: :unprocessable_entity
     end
   end
 
