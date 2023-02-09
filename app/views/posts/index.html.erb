@@ -29,6 +29,7 @@
             <td><%#= item.description %></td>
             <td><%= post.user.email %></td>
             <td><%= post.comments_count %></td>
+            <td><%= post.votes_count %></td>
             <td>
                 <% if post.user == current_user %>
                   <%= link_to edit_post_path(post) do %>

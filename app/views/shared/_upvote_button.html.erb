@@ -1,0 +1,5 @@
+<div id="upvote-button-<%= post.id %>">
+  <%= form_tag upvote_post_path(post), method: :post do %>
+    <%= button_tag vote.blank? ? "vote" : "voted", class: "btn btn btn-primary"%>
+  <% end %>
+</div>

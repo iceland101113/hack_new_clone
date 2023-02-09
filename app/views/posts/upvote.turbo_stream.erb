@@ -1,0 +1,5 @@
+<turbo-stream action="replace" target="upvote-button-<%= @post.id %>">
+  <template>
+    <%= render partial: 'shared/upvote_button', locals: {post: @post, vote: @vote} %>
+  </template>
+</turbo-stream>

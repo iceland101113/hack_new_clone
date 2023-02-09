@@ -22,6 +22,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.where(parent_id: nil).includes(:user)
+  def upvote
+    if current_user.upvoted?(@post)
+      current_user.votes.find_by(post: @post).destroy
+      @vote = nil
+    else
+      @vote = @post.votes.new(user: current_user)
+      @vote.save
+    end
   end
 
   private
