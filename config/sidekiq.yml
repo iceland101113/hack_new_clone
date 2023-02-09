@@ -1,0 +1,13 @@
+:concurrency: 1
+:queues:
+  - [default, 1]
+  - [scheduler, 1]
+
+:scheduler:
+  :schedule: &default_tasks
+    CalculateScoreWorker:
+      description: Calculate the score for posts and comments
+      class: CalculateScoreWorker
+      cron: '0 */1 * * * *' # Runs every minutes
+      queue: scheduler
+      enabled: true
